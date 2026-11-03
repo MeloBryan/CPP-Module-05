@@ -1,0 +1,97 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/03 14:36:17 by bmelo             #+#    #+#             */
+/*   Updated: 2026/11/03 15:15:34 by bmelo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Bureaucrat.hpp"
+#include <iostream>
+
+int main()
+{
+    std::cout << "1.Test Normal Construction and Stream Operator :" << std::endl;
+    try
+    {
+        Bureaucrat joe("Joe", 75);
+        std::cout << joe << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught : " << e.what() << std::endl;
+    }
+    
+    std::cout << "\n2.Test Upgrading And Downgrading" << std::endl;
+    try
+    {
+        Bureaucrat rania("Rania", 2);
+        std::cout << rania << std::endl;
+
+        rania.upGrade();
+        std::cout << "Promotion : " << rania << std::endl;
+        rania.downGrade();
+        std::cout << "Regression : " << rania << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught : " << e.what() << std::endl;
+    }
+
+    std::cout << "\n3.Testing Construction Exceptions (Too High)" << std::endl;
+    try
+    {
+        std::cout << "Trying to create a too high grade Burreaucrat" << std::endl;
+        Bureaucrat bryan("Bryan", 0);
+        std::cout << bryan << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught successfully: " <<e.what() << std::endl;
+    }
+
+    std::cout << "\n4.Testing Construction Exceptions (Too Low)" << std::endl;
+    try
+    {
+        std::cout << "Trying to create a too high grade Burreaucrat" << std::endl;
+        Bureaucrat merdien("Merdien", 153);
+        std::cout << merdien << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught successfully: " <<e.what() << std::endl;
+    }
+
+    std::cout << "\n5.Testing Runtime Upgrade Exception (Above 1)" << std::endl;
+    try
+    {
+        Bureaucrat batman("Bruce Wayne", 1);
+        std::cout << batman << std::endl;
+        std::cout << "Attempting to upgrade grade 1 ..." << std::endl;
+        batman.upGrade();
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught successfully : " << e.what() << std::endl;
+    }
+
+    std::cout << "\n6.Testing Runtime Downgrade Exception (Below 150)" << std::endl;
+    try
+    {
+        Bureaucrat robin("Robin", 150);
+        std::cout << robin << std::endl;
+        std::cout << "Attempting to downgrade grade 150 ..." << std::endl;
+        robin.downGrade();
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught successfully : " << e.what() << std::endl;
+    }
+
+    std::cout << "\nEnd of Tests !" << std::endl;
+    return (0);
+}
