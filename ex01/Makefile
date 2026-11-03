@@ -3,24 +3,24 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/03 14:37:54 by bmelo             #+#    #+#              #
-#    Updated: 2026/11/03 14:44:35 by bmelo            ###   ########.fr        #
+#    Updated: 2026/11/03 20:01:09 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Bureaucrat
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp Bureaucrat.cpp Form.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
-	@printf "\033[32mBureaucrat's are Ready to work\033[0m\n" "$(NAME)"
+	@printf "\033[32mBureaucrat's are Ready to Sign Forms \033[0m\n" "$(NAME)"
 
 %.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@

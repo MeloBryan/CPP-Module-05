@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 14:36:17 by bmelo             #+#    #+#             */
-/*   Updated: 2026/11/03 15:15:34 by bmelo            ###   ########.fr       */
+/*   Updated: 2026/11/03 22:54:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 int main()
@@ -90,6 +91,45 @@ int main()
     catch (std::exception &e)
     {
         std::cerr << "Exception caught successfully : " << e.what() << std::endl;
+    }
+
+    std::cout << "\n7.Testing Form Signing" << std::endl;
+    try
+    {
+        Bureaucrat mbappe("Kylian", 50);
+        Form formA("Form A", 75, 100);
+        std::cout << formA << std::endl;
+        mbappe.signForm(formA);
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught : " << e.what() << std::endl;
+    }
+
+    std::cout << "\n8.Testing Form Signing with High Grade" << std::endl;
+    try
+    {
+        Bureaucrat messi("Lionel", 1);
+        Form formB("Form B", 75, 100);
+        std::cout << formB << std::endl;
+        messi.signForm(formB);
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught : " << e.what() << std::endl;
+    }
+
+    std::cout << "\n9.Testing Form Signing with Low Grade" << std::endl;
+    try
+    {
+        Bureaucrat ronaldo("Cristiano", 150);
+        Form formC("Form C", 75, 100);
+        std::cout << formC << std::endl;
+        ronaldo.signForm(formC);
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception caught : " << e.what() << std::endl;
     }
 
     std::cout << "\nEnd of Tests !" << std::endl;

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 12:48:42 by bmelo             #+#    #+#             */
-/*   Updated: 2026/11/03 15:18:25 by bmelo            ###   ########.fr       */
+/*   Updated: 2026/11/03 22:55:39 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 #include <ostream>
 
@@ -33,6 +34,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.
 {
     std::cout << "Copy constructor called for " << this->name << std::endl;
 }
+
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 {
     std::cout << "Assignement operator called" << std::endl;
@@ -70,6 +72,19 @@ void Bureaucrat::downGrade(void)
     if (this->grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();
     this->grade++;
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << this->name << " signed " << form.getName() << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << this->name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
