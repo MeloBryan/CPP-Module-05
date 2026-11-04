@@ -5,6 +5,10 @@
 #include <string>
 #include <exception>
 
+#ifndef FORMDEBUG
+    #define FORMDEBUG 0
+#endif
+
 class Bureaucrat;
 
 class Form

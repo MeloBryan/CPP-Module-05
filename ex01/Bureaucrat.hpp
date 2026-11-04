@@ -4,6 +4,10 @@
 #include <string>
 #include <exception>
 
+#ifndef BUREAUCRATDEBUG
+    #define BUREAUCRATDEBUG 0
+#endif
+
 class Form;
 
 class Bureaucrat

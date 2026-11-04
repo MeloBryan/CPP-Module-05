@@ -6,11 +6,11 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/03 14:37:54 by bmelo             #+#    #+#              #
-#    Updated: 2026/11/03 20:01:09 by marvin           ###   ########.fr        #
+#    Updated: 2026/11/04 17:00:10 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = bureaucratNform
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 SRC = main.cpp Bureaucrat.cpp Form.cpp
@@ -22,6 +22,12 @@ $(NAME) : $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 	@printf "\033[32mBureaucrat's are Ready to Sign Forms \033[0m\n" "$(NAME)"
 
+BureaucratDEBUG : CXXFLAGS += -DBUREAUCRATDEBUG=1
+BureaucratDEBUG : re
+
+FormDEBUG : CXXFLAGS += -DFORMDEBUG=1
+FormDEBUG : re
+
 %.o : %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
@@ -30,4 +36,4 @@ clean :
 fclean : clean
 	rm -f $(NAME)
 re : fclean all
-.PHONY : all clean fclean re
+.PHONY : all clean fclean re BureaucratDEBUG FormDEBUG

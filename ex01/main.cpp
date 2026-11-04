@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 14:36:17 by bmelo             #+#    #+#             */
-/*   Updated: 2026/11/03 22:54:29 by marvin           ###   ########.fr       */
+/*   Updated: 2026/11/04 16:56:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #include "Form.hpp"
 #include <iostream>
 
-int main()
-{
+#if BUREAUCRATDEBUG == 1
+    int main()
+    {
     std::cout << "1.Test Normal Construction and Stream Operator :" << std::endl;
     try
     {
@@ -93,45 +94,66 @@ int main()
         std::cerr << "Exception caught successfully : " << e.what() << std::endl;
     }
 
-    std::cout << "\n7.Testing Form Signing" << std::endl;
+    std::cout << "\nEnd of Tests !" << std::endl;
+    return (0);
+    }
+#endif
+
+#if FORMDEBUG == 1
+    int main()
+    {
+    
+    std::cout << "\n1.Testing Form Signing" << std::endl;
     try
     {
         Bureaucrat mbappe("Kylian", 50);
         Form formA("Form A", 75, 100);
         std::cout << formA << std::endl;
         mbappe.signForm(formA);
+        std::cout << formA << std::endl;
     }
     catch (std::exception &e)
     {
         std::cerr << "Exception caught : " << e.what() << std::endl;
     }
 
-    std::cout << "\n8.Testing Form Signing with High Grade" << std::endl;
+    std::cout << "\n2.Testing Form Signing with High Grade" << std::endl;
     try
     {
         Bureaucrat messi("Lionel", 1);
         Form formB("Form B", 75, 100);
         std::cout << formB << std::endl;
         messi.signForm(formB);
+        std::cout << formB << std::endl;
     }
     catch (std::exception &e)
     {
         std::cerr << "Exception caught : " << e.what() << std::endl;
     }
 
-    std::cout << "\n9.Testing Form Signing with Low Grade" << std::endl;
+    std::cout << "\n3.Testing Form Signing with Low Grade" << std::endl;
     try
     {
         Bureaucrat ronaldo("Cristiano", 150);
         Form formC("Form C", 75, 100);
         std::cout << formC << std::endl;
         ronaldo.signForm(formC);
+        std::cout << formC << std::endl;
     }
     catch (std::exception &e)
     {
         std::cerr << "Exception caught : " << e.what() << std::endl;
     }
-
+    
     std::cout << "\nEnd of Tests !" << std::endl;
     return (0);
-}
+    }
+#endif
+
+#if BUREAUCRATDEBUG == 0 && FORMDEBUG == 0
+    int main()
+    {
+        std::cout << "No Debugging Enabled. Please set BUREAUCRATDEBUG or FORMDEBUG to 1 in the Makefile to run tests." << std::endl;
+        return (0);
+    }
+#endif
