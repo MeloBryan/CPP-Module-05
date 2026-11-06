@@ -4,8 +4,8 @@
 #include <string>
 #include "AForm.hpp"
 
-#ifndef ROBOTDEBUG
-#define ROBOTDEBUG 0
+#ifndef ROBOTOMYREQUESTFORMDEBUG
+#define ROBOTOMYREQUESTFORMDEBUG 0
 #endif
 
 class RobotomyRequestForm : public AForm

@@ -4,8 +4,8 @@
 #include <string>
 #include "AForm.hpp"
 
-#ifndef PRESIDENTDEBUG
-#define PRESIDENTDEBUG 0
+#ifndef PRESIDENTIALPARDONFORMDEBUG
+#define PRESIDENTIALPARDONFORMDEBUG 0
 #endif
 
 class Bureaucrat;
