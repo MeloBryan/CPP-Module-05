@@ -5,7 +5,7 @@
 #include <exception>
 
 #ifndef BUREAUCRATDEBUG
-    #define BUREAUCRATDEBUG 0
+#define BUREAUCRATDEBUG 0
 #endif
 
 class Form;

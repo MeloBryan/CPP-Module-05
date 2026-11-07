@@ -6,7 +6,7 @@
 #include <exception>
 
 #ifndef FORMDEBUG
-    #define FORMDEBUG 0
+#define FORMDEBUG 0
 #endif
 
 class Bureaucrat;
