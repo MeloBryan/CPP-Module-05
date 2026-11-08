@@ -6,7 +6,7 @@
 #    By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/03 14:37:54 by bmelo             #+#    #+#              #
-#    Updated: 2026/11/08 19:30:59 by bmelo            ###   ########.fr        #
+#    Updated: 2026/11/08 20:14:02 by bmelo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	@clear
 	@printf "\033[32mBureaucrat's are Ready to Sign Forms \033[0m\n" "$(NAME)"
 
 BureaucratDEBUG : CXXFLAGS += -DBUREAUCRATDEBUG=1
@@ -35,5 +36,6 @@ clean :
 	rm -f $(OBJ)
 fclean : clean
 	rm -f $(NAME)
+	@clear
 re : fclean all
 .PHONY : all clean fclean re BureaucratDEBUG FormDEBUG

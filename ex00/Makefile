@@ -6,7 +6,7 @@
 #    By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/03 14:37:54 by bmelo             #+#    #+#              #
-#    Updated: 2026/11/03 14:44:35 by bmelo            ###   ########.fr        #
+#    Updated: 2026/11/08 20:13:56 by bmelo            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	@clear
 	@printf "\033[32mBureaucrat's are Ready to work\033[0m\n" "$(NAME)"
 
 %.o : %.cpp
@@ -29,5 +30,6 @@ clean :
 	rm -f $(OBJ)
 fclean : clean
 	rm -f $(NAME)
+	@clear
 re : fclean all
 .PHONY : all clean fclean re

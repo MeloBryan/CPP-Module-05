@@ -20,7 +20,9 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	@clear
 	@printf "\033[32mBureaucrat's are Ready to Sign Forms \033[0m\n" "$(NAME)"
+
 
 BureaucratDEBUG : CXXFLAGS += -DBUREAUCRATDEBUG=1
 BureaucratDEBUG : re
@@ -41,5 +43,7 @@ clean:
 	rm -f $(OBJS)
 fclean: clean
 	rm -f $(NAME)
+	rm -f *_shrubbery
+	@clear
 re: fclean all
 .PHONY: all clean fclean re

@@ -15,6 +15,8 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <ostream>
 
@@ -110,7 +112,7 @@
         std::cout << "Testing ShrubberyCreationForm Execution" << std::endl;
         try
         {
-            Bureaucrat alice("Alice", 100);
+            Bureaucrat alice("Alice", 1);
             ShrubberyCreationForm shrubberyForm("garden");
             std::cout << shrubberyForm << std::endl;
 
@@ -118,6 +120,11 @@
             std::cout << shrubberyForm << std::endl;
 
             alice.execute(shrubberyForm);
+            if (shrubberyForm.getIsSigned() == true && shrubberyForm.getGradeToExecute() >= alice.getGrade())
+                std::cout << "Shrubbery request executed successfully!" << std::endl;
+            else
+                std::cout << "Shrubbery request failed ..." << std::endl;
+
         }
         catch (std::exception &e)
         {
@@ -134,7 +141,7 @@
         std::cout << "Testing PresidentialPardonForm Execution" << std::endl;
         try
         {
-            Bureaucrat bob("Bob", 5);
+            Bureaucrat bob("Bob", 6);
             PresidentialPardonForm pardonForm("Charlie");
             std::cout << pardonForm << std::endl;
 
@@ -142,7 +149,10 @@
             std::cout << pardonForm << std::endl;
 
             bob.execute(pardonForm);
-            std::cout << "Presidential pardon executed successfully!" << std::endl;
+            if (pardonForm.getIsSigned() == true && pardonForm.getGradeToExecute() >= bob.getGrade())
+                std::cout << "Presidential pardon executed successfully!" << std::endl;
+            else
+                std::cout << "Presidential pardon failed ..." << std::endl;
         }
         catch (std::exception &e)
         {
@@ -156,10 +166,11 @@
 #if ROBOTOMYREQUESTFORMDEBUG == 1
     int main()
     {
+        std::srand(std::time(NULL));
         std::cout << "Testing RobotomyRequestForm Execution" << std::endl;
         try
         {
-            Bureaucrat dave("Dave", 45);
+            Bureaucrat dave("Dave", 12);
             RobotomyRequestForm robotomyForm("Eve");
             std::cout << robotomyForm << std::endl;
 
@@ -167,7 +178,10 @@
             std::cout << robotomyForm << std::endl;
 
             dave.execute(robotomyForm);
-            std::cout << "Robotomy request executed successfully!" << std::endl;
+            if (robotomyForm.getIsSigned() == true && robotomyForm.getGradeToExecute() >= dave.getGrade())
+                std::cout << "Robotomy request executed successfully!" << std::endl;
+            else
+                std::cout << "Robotomy request failed ..." << std::endl;
         }
         catch (std::exception &e)
         {

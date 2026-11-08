@@ -47,7 +47,7 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const
     {
         throw AForm::GradeTooLowException();
     }
-    std::cout << this->target << " has been pardoned by the President." << std::endl;
+    std::cout << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &form)
