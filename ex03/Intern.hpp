@@ -6,7 +6,7 @@
 /*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 21:59:56 by bmelo             #+#    #+#             */
-/*   Updated: 2026/11/06 21:59:57 by bmelo            ###   ########.fr       */
+/*   Updated: 2026/11/08 21:14:02 by bmelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ class Intern
         ~Intern();
         AForm* makeForm(std::string formName, std::string target);
 };
-
-std::ostream &operator<<(std::ostream &out, const Intern &intern);
 
 #endif

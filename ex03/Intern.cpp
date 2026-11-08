@@ -6,7 +6,7 @@
 /*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/06 21:02:25 by bmelo             #+#    #+#             */
-/*   Updated: 2026/11/06 21:59:54 by bmelo            ###   ########.fr       */
+/*   Updated: 2026/11/08 21:30:48 by bmelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ AForm* Intern::makeForm(std::string formName, std::string target)
         }
     }
 
-    std::cerr << "Intern cannot creates form : " << formName << std::endl;
+    std::cerr << "Intern cannot create form : " << formName << std::endl;
     return (NULL);
 }

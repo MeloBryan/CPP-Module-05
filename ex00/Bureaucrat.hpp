@@ -6,7 +6,7 @@
 /*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/08 19:30:38 by bmelo             #+#    #+#             */
-/*   Updated: 2026/11/08 19:30:39 by bmelo            ###   ########.fr       */
+/*   Updated: 2026/11/08 21:24:35 by bmelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class Bureaucrat
         std::string getName(void) const;
         int getGrade(void) const;
 
-        void upGrade(void);
-        void downGrade(void);
+        void incrementGrade(void);
+        void decrementGrade(void);
 
         class GradeTooHighException : public std::exception
         {

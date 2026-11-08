@@ -41,9 +41,9 @@
         Bureaucrat rania("Rania", 2);
         std::cout << rania << std::endl;
 
-        rania.upGrade();
+        rania.incrementGrade();
         std::cout << "Promotion : " << rania << std::endl;
-        rania.downGrade();
+        rania.decrementGrade();
         std::cout << "Regression : " << rania << std::endl;
     }
     catch (std::exception &e)
@@ -75,26 +75,26 @@
         std::cerr << "Exception caught successfully: " <<e.what() << std::endl;
     }
 
-    std::cout << "\n5.Testing Runtime Upgrade Exception (Above 1)" << std::endl;
+    std::cout << "\n5.Testing Runtime incrementGrade Exception (Above 1)" << std::endl;
     try
     {
         Bureaucrat batman("Bruce Wayne", 1);
         std::cout << batman << std::endl;
-        std::cout << "Attempting to upgrade grade 1 ..." << std::endl;
-        batman.upGrade();
+        std::cout << "Attempting to incrementGrade grade 1 ..." << std::endl;
+        batman.incrementGrade();
     }
     catch (std::exception &e)
     {
         std::cerr << "Exception caught successfully : " << e.what() << std::endl;
     }
 
-    std::cout << "\n6.Testing Runtime Downgrade Exception (Below 150)" << std::endl;
+    std::cout << "\n6.Testing Runtime decrementGrade Exception (Below 150)" << std::endl;
     try
     {
         Bureaucrat robin("Robin", 150);
         std::cout << robin << std::endl;
-        std::cout << "Attempting to downgrade grade 150 ..." << std::endl;
-        robin.downGrade();
+        std::cout << "Attempting to decrementGrade grade 150 ..." << std::endl;
+        robin.decrementGrade();
     }
     catch (std::exception &e)
     {
@@ -119,7 +119,7 @@
             alice.signForm(shrubberyForm);
             std::cout << shrubberyForm << std::endl;
 
-            alice.execute(shrubberyForm);
+            alice.executeForm(shrubberyForm);
             if (shrubberyForm.getIsSigned() == true && shrubberyForm.getGradeToExecute() >= alice.getGrade())
                 std::cout << "Shrubbery request executed successfully!" << std::endl;
             else
@@ -148,7 +148,7 @@
             bob.signForm(pardonForm);
             std::cout << pardonForm << std::endl;
 
-            bob.execute(pardonForm);
+            bob.executeForm(pardonForm);
             if (pardonForm.getIsSigned() == true && pardonForm.getGradeToExecute() >= bob.getGrade())
                 std::cout << "Presidential pardon executed successfully!" << std::endl;
             else
@@ -177,7 +177,7 @@
             dave.signForm(robotomyForm);
             std::cout << robotomyForm << std::endl;
 
-            dave.execute(robotomyForm);
+            dave.executeForm(robotomyForm);
             if (robotomyForm.getIsSigned() == true && robotomyForm.getGradeToExecute() >= dave.getGrade())
                 std::cout << "Robotomy request executed successfully!" << std::endl;
             else

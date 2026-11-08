@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include <iostream>
 #include <ostream>
 
@@ -60,9 +61,10 @@ int AForm::getGradeToExecute() const
     return (gradeToExecute);
 }
 
-void AForm::beSigned(int grade)
+void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
-    if (grade > gradeToSign) {
+    if (bureaucrat.getGrade() > this->gradeToSign)
+    {
         throw GradeTooLowException();
     }
     this->isSigned = true;

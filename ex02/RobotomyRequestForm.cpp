@@ -78,6 +78,6 @@ std::ostream &operator<<(std::ostream &out, const RobotomyRequestForm &form)
     out << "Target: " << form.getTarget() << std::endl;
     out << "Signed: " << (form.getIsSigned() ? "Yes" : "No") << std::endl;
     out << "Grade Required to Sign: " << form.getGradeToSign() << std::endl;
-    out << "Grade Required to Execute: " << form.getGradeToExecute() << std::endl;
+    out << "Grade Required to execute: " << form.getGradeToExecute() << std::endl;
     return (out);
 }

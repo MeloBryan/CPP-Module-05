@@ -6,7 +6,7 @@
 /*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/03 12:48:42 by bmelo             #+#    #+#             */
-/*   Updated: 2026/11/08 19:30:40 by bmelo            ###   ########.fr       */
+/*   Updated: 2026/11/08 21:24:36 by bmelo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,14 @@ int Bureaucrat::getGrade(void) const
 	return (this->grade);
 }
 
-void Bureaucrat::upGrade(void)
+void Bureaucrat::incrementGrade(void)
 {
     if (this->grade - 1 < 1)
         throw Bureaucrat::GradeTooHighException();
     this->grade--;
 }
 
-void Bureaucrat::downGrade(void)
+void Bureaucrat::decrementGrade(void)
 {
     if (this->grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();

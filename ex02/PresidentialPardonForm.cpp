@@ -52,6 +52,6 @@ void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 
 std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &form)
 {
-    out << "PresidentialPardonForm: " << form.getName() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << form.getGradeToSign() << ", Grade to Execute: " << form.getGradeToExecute();
+    out << "PresidentialPardonForm: " << form.getName() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << form.getGradeToSign() << ", Grade to execute: " << form.getGradeToExecute();
     return out;
 }

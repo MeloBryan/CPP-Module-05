@@ -15,6 +15,7 @@
 #include <fstream>
 #include <ostream>
 #include <iostream>
+#include <stdexcept>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
@@ -65,27 +66,25 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 
     std::string filename = this->getTarget() + "_shrubbery";
     std::ofstream outfile(filename.c_str());
-    if (outfile.is_open())
-    {
-        outfile << "      /\\      " << std::endl;
-        outfile << "     /\\*\\     " << std::endl;
-        outfile << "    /\\O\\*\\    " << std::endl;
-        outfile << "   /*/\\/\\/\\   " << std::endl;
-        outfile << "  /\\O\\/\\*\\/\\  " << std::endl;
-        outfile << " /\\*\\/\\*\\/\\/\\ " << std::endl;
-        outfile << "/\\O\\/\\/*/\\/O/\\" << std::endl;
-        outfile << "      ||      " << std::endl;
-        outfile << "      ||      " << std::endl;
-        outfile.close();
-    }
-    else
-    {
-        std::cerr << "Error: Could not open file " << filename << std::endl;
-    }
+    if (!outfile.is_open())
+        throw std::runtime_error("Could not open file " + filename);
+
+    outfile << "      /\\      " << std::endl;
+    outfile << "     /\\*\\     " << std::endl;
+    outfile << "    /\\O\\*\\    " << std::endl;
+    outfile << "   /*/\\/\\/\\   " << std::endl;
+    outfile << "  /\\O\\/\\*\\/\\  " << std::endl;
+    outfile << " /\\*\\/\\*\\/\\/\\ " << std::endl;
+    outfile << "/\\O\\/\\/*/\\/O/\\" << std::endl;
+    outfile << "      ||      " << std::endl;
+    outfile << "      ||      " << std::endl;
+    outfile.close();
+    if (outfile.fail())
+        throw std::runtime_error("Failed to write file " + filename);
 }
 
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &form)
 {
-    out << "ShrubberyCreationForm: " << form.getName() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << form.getGradeToSign() << ", Grade to Execute: " << form.getGradeToExecute() << ", Target: " << form.getTarget();
+    out << "ShrubberyCreationForm: " << form.getName() << ", Signed: " << (form.getIsSigned() ? "Yes" : "No") << ", Grade to Sign: " << form.getGradeToSign() << ", Grade to execute: " << form.getGradeToExecute() << ", Target: " << form.getTarget();
     return out;
 }

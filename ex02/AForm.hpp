@@ -41,7 +41,7 @@ class AForm
         int getGradeToSign() const;
         int getGradeToExecute() const;
 
-        void beSigned(int grade);
+        void beSigned(const Bureaucrat &bureaucrat);
         virtual void execute(const Bureaucrat &executor) const = 0;
         class FormNotSignedException : public std::exception
         {
