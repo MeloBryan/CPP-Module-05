@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/08 19:29:43 by bmelo             #+#    #+#             */
+/*   Updated: 2026/11/08 19:29:43 by bmelo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -106,7 +118,6 @@
             std::cout << shrubberyForm << std::endl;
 
             alice.execute(shrubberyForm);
-            std::cout << "Shrubbery created successfully!" << std::endl;
         }
         catch (std::exception &e)
         {

@@ -17,6 +17,10 @@
 #include <ostream>
 #include <iostream>
 
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), target("default")
+{
+}
+
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), target(target)
 {
 }

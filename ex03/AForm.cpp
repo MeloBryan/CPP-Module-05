@@ -17,8 +17,13 @@
 AForm::AForm() : name("Default"), isSigned(false), gradeToSign(75), gradeToExecute(45) 
 {}
 
-AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) 
-{}
+AForm::AForm(std::string name, int gradeToSign, int gradeToExecute) : name(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+{
+    if (gradeToSign < 1 || gradeToExecute < 1)
+        throw GradeTooHighException();
+    if (gradeToSign > 150 || gradeToExecute > 150)
+        throw GradeTooLowException();
+}
 
 AForm::AForm(const AForm &other) : name(other.name), isSigned(other.isSigned), gradeToSign(other.gradeToSign), gradeToExecute(other.gradeToExecute)
 {}
@@ -57,7 +62,7 @@ int AForm::getGradeToExecute() const
 
 void AForm::beSigned(int grade)
 {
-    if (grade < gradeToSign) {
+    if (grade > gradeToSign) {
         throw GradeTooLowException();
     }
     this->isSigned = true;

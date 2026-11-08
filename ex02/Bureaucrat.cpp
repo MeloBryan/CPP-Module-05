@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/08 19:29:38 by bmelo             #+#    #+#             */
+/*   Updated: 2026/11/08 19:29:38 by bmelo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include <iostream>
 #include <ostream>
@@ -23,7 +35,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.name), grade(other.
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other) 
 {
     if (this != &other) {
-        name = other.name;
         grade = other.grade;
     }
     return (*this);

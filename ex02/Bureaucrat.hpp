@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bmelo <bmelo@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/08 19:29:40 by bmelo             #+#    #+#             */
+/*   Updated: 2026/11/08 19:29:40 by bmelo            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
@@ -11,7 +23,7 @@
 class Bureaucrat
 {
     private:
-        std::string name;
+        const std::string name;
         int grade;
     public:
         Bureaucrat();

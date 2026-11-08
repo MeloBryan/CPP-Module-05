@@ -119,7 +119,6 @@
             std::cout << shrubberyForm << std::endl;
 
             alice.execute(shrubberyForm);
-            std::cout << "Shrubbery created successfully!" << std::endl;
         }
         catch (std::exception &e)
         {
@@ -191,7 +190,10 @@
 
             rrf = someRandomIntern.makeForm("robotomy request", "Bender");
             if (rrf)
+            {
                 std::cout << *rrf << std::endl;
+                delete rrf;
+            }
         }
         catch (std::exception &e)
         {
